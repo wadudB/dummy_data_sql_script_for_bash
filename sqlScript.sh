@@ -3,6 +3,7 @@
 START=1
 END=10
 count=0
+pstr="[=======================================================================]"
 startDateTime="2023-01-01 06:29:26"
 endDateTime="2023-03-01 06:29:26"
 
@@ -23,6 +24,10 @@ do
 	approval_flg=0
 	delete_flg=0
 	((count++)) 
+	
+	#display a progress bar indicator
+	pd=$(( $c * 73 / $END ))
+	printf "\r%3d.%1d%% %.${pd}s" $(( $c * 100 / $END )) $(( ($c * 1000 / $END) % 10 )) $pstr
 	
 	#mysql DB connection 
 	./mysql.config <<EOF
