@@ -7,7 +7,7 @@ END=10
 count=0
 
 #Script to run automated sql queries 
-#Here i is number of Lessons
+#Here i is number of user lessons informatin that will be generayed
 for (( c=$START; c<=$END; c++ ))
 do	
 	#Prepare sql query
@@ -16,10 +16,10 @@ do
 	UUID=$(uuidgen)
 	stop_flg=0
 	delete_flg=0
-  #Date increments by One day
+  	#Date increments by One day
 	startDateTime=$(date '+%Y-%m-%d %H:%M:%S' -d "$startDateTime next day"); 
 	endDateTime=$(date '+%Y-%m-%d %H:%M:%S' -d "$endDateTime next day"); 
-	note="Lorem Ipsum is simply dummy text of the printing and typesetting for user ${i}"
+	note="Lorem Ipsum is simply dummy text of the printing and typesetting for learner ${i}"
 	approval_flg=0
 	delete_flg=0
 	((count++)) 
@@ -28,7 +28,7 @@ do
 	./mysql.config <<EOF
 	
 	#sql query
-	INSERT INTO t_lesson VALUES($userId, "${i}", "${cDate}", "${UUID}", "${UUID}", $stop_flg, $delete_flg, 
+	INSERT INTO user_lessons VALUES($userId, "${i}", "${cDate}", "${UUID}", "${UUID}", $stop_flg, $delete_flg, 
 		  "${startDateTime}", "${endDateTime}", "${note}", $approval_flg, $cancel_flg)	       
 EOF
 done
