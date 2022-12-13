@@ -1,10 +1,10 @@
 #!/usr/bin/bash
 
-startDateTime="2023-01-01 06:29:26"
-endDateTime="2023-03-01 06:29:26"
 START=1
 END=10
 count=0
+startDateTime="2023-01-01 06:29:26"
+endDateTime="2023-03-01 06:29:26"
 
 #Script to run automated sql queries 
 #Here i is number of user lessons informatin that will be generayed
