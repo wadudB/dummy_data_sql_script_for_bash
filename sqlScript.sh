@@ -7,7 +7,7 @@ END=10
 count=0
 
 #Script to run automated sql queries 
-#Here i is number of Lessons
+#Here i is number of User Data that will be Created
 for (( c=$START; c<=$END; c++ ))
 do	
 	#Prepare sql query
